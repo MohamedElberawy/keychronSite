@@ -23,6 +23,7 @@ class Keychron1Spider(scrapy.Spider):
             }
         }
     }
+    
 # This functions yield the information we want
     def parse(self, response):
         raw_data = response.css(
@@ -38,7 +39,7 @@ class Keychron1Spider(scrapy.Spider):
                 'priceValidUntil': item["priceValidUntil"]
             }
 
-
+            
 def get_body():
     df = pd.read_csv(CSV_FILE)
     df[df['available']].to_html()
