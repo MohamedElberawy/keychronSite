@@ -50,7 +50,8 @@ def send_mail():
     msg['From'] = EMAIL_USER
     msg['To'] = EMAIL_USER
     msg['Subject'] = "Keychron Availability Status"
-
+    
+# zmail and zpass are environment variables created on our machine
     EMAIL_USER = os.environ.get('ZMAIL')
     EMAIL_PASS = os.environ.get('ZPASS')
 
