@@ -12,7 +12,6 @@ CSV_FILE = "key2.csv"
 
 class Keychron1Spider(scrapy.Spider):
     name = "keychron1"
-    allowed_domains = ["x"]
     start_urls = [
         "https://www.keychron.com/collections/custom-keyboards/products/keychron-q1"]
 
@@ -24,7 +23,7 @@ class Keychron1Spider(scrapy.Spider):
             }
         }
     }
-
+# This functions yield the information we want
     def parse(self, response):
         raw_data = response.css(
             'script[type="application/ld+json"]::text').get()
@@ -44,7 +43,7 @@ def get_body():
     df = pd.read_csv(CSV_FILE)
     df[df['available']].to_html()
 
-
+# this function send the csv file we create to the email
 def send_mail():
     msg = EmailMessage()
     msg['From'] = EMAIL_USER
